@@ -4,12 +4,16 @@ mu_rate = 1 / (20 / 60)  # Service rate (customers per minute)
 time_to_seat = 1.5  # Time to reach the correct seat (minutes)
 time_before_game = 2  # Time before the game starts (minutes)
 
+#Waiting time
 Wq = lambda_rate / (mu_rate * (mu_rate - lambda_rate))
 
+#service time
 Ws = 1 / mu_rate
 
+#Total time sepnt in bank
 W = Wq + Ws
 
+#Total time to be seated
 T_total = W + time_to_seat
 
 can_be_seated = T_total <= time_before_game
